@@ -1,9 +1,9 @@
 import React from 'react';
-
+import Menu from './components/Menu';
 function App() {
   return (
     <div>
-      Welcome to PereiraFlix
+      <Menu />
     </div>
   );
 }
