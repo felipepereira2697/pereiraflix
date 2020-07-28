@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../assets/img/logo.png';
 import './menu.css';
-import ButtonLink from './components/ButtonLink';
+import Button from '../Button';
 function Menu() {
     return (
         // Quando isso é muito simples, podemos usar o nav
@@ -10,9 +10,10 @@ function Menu() {
                 <img src={logo} className="Logo" alt="Pereiraflix logo"/>
             </a>
 
-           <ButtonLink className="ButtonLink" href="/">
+            {/* Botao vai se comportar como um link usando o as="a" */}
+           <Button as="a" className="ButtonLink" href="/">
                 Novo vídeo
-           </ButtonLink>
+           </Button>
         </nav>
 
     );
