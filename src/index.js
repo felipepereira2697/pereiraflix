@@ -7,9 +7,11 @@ import App from './App';
 //para nos ajudar em como criar as rotas, qual pagina mostrar baseado na url, vamos usar o Switch e o Route
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+const Page404 = () => {
+  return (<div>Sorry, Error 404</div>);
+}
 
 // Vai inicializar o React 
-
 ReactDOM.render(
 
   // Em volta da nossa aplicacao devemos ter um sistema de roteamento, quando ela carregar devemos decidir qual pagina ela vai mostrar
@@ -20,7 +22,7 @@ ReactDOM.render(
       {/* o ultimo componente declarado será executado caso nenhuma rota seja encontrada antes */}
       {/* jeito diferente de criar seu cmp */}
 
-      <Route component={() => (<div>Error 404</div>)} />
+      <Route component={Page404} />
     </Switch>
   </BrowserRouter>,
   // renderiza o react aqui dentro
