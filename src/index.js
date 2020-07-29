@@ -3,11 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
+// React router dom vem aqui
+//para nos ajudar em como criar as rotas, qual pagina mostrar baseado na url, vamos usar o Switch e o Route
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+
+// Vai inicializar o React 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+
+  // Em volta da nossa aplicacao devemos ter um sistema de roteamento, quando ela carregar devemos decidir qual pagina ela vai mostrar
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" component={App} exact />
+      
+      {/* o ultimo componente declarado será executado caso nenhuma rota seja encontrada antes */}
+    </Switch>
+  </BrowserRouter>,
+  // renderiza o react aqui dentro
   document.getElementById('root')
 );
 
