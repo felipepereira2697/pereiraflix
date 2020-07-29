@@ -18,6 +18,9 @@ ReactDOM.render(
       <Route path="/" component={App} exact />
       
       {/* o ultimo componente declarado será executado caso nenhuma rota seja encontrada antes */}
+      {/* jeito diferente de criar seu cmp */}
+
+      <Route component={() => (<div>Error 404</div>)} />
     </Switch>
   </BrowserRouter>,
   // renderiza o react aqui dentro
