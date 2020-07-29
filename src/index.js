@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-
+import Home from './pages/Home';
+import CadastroVideo from './pages/cadastro/Video';
 // React router dom vem aqui
 //para nos ajudar em como criar as rotas, qual pagina mostrar baseado na url, vamos usar o Switch e o Route
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -17,8 +17,8 @@ ReactDOM.render(
   // Em volta da nossa aplicacao devemos ter um sistema de roteamento, quando ela carregar devemos decidir qual pagina ela vai mostrar
   <BrowserRouter>
     <Switch>
-      <Route path="/" component={App} exact />
-      
+      <Route path="/" component={Home} exact />
+      <Route path="/cadastro/video" component={CadastroVideo} />
       {/* o ultimo componente declarado será executado caso nenhuma rota seja encontrada antes */}
       {/* jeito diferente de criar seu cmp */}
 
