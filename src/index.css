@@ -1,4 +1,4 @@
-/*CSS RESET*/
+/*CSS RESET */
 * {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
@@ -24,3 +24,7 @@ body {
 a {
   color: inherit;
 } 
+
+#root {
+  min-height: 100vh;
+}
