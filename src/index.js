@@ -6,6 +6,7 @@ import CadastroVideo from './pages/cadastro/Video';
 // React router dom vem aqui
 //para nos ajudar em como criar as rotas, qual pagina mostrar baseado na url, vamos usar o Switch e o Route
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import CadastroCategoria from './pages/cadastro/Categoria';
 
 const Page404 = () => {
   return (<div>Sorry, Error 404</div>);
@@ -19,6 +20,7 @@ ReactDOM.render(
     <Switch>
       <Route path="/" component={Home} exact />
       <Route path="/cadastro/video" component={CadastroVideo} />
+      <Route path="/cadastro/categoria" component={CadastroCategoria} />
       {/* o ultimo componente declarado será executado caso nenhuma rota seja encontrada antes */}
       {/* jeito diferente de criar seu cmp */}
 
