@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PageDefault from '../../../components/PageDefault';
 import { Link } from 'react-router-dom';
+import FormField from '../../../components/Carousel/components/FormField';
 
  function CadastroCategoria() {
      const valoresIniciais = {
@@ -21,8 +22,13 @@ import { Link } from 'react-router-dom';
 
     function handleChange(event) {
         //quem é o alvo da mudança que estamos fazendo
-        const evtValue = event.target.value;
-        setValue(event.target.getAttribute('name'),evtValue);
+        //usando destructuring
+        const {getAttribute, value} = event.target
+        
+        setValue(
+            getAttribute('name'),
+            value
+        );
             
     }
     return (
@@ -38,36 +44,30 @@ import { Link } from 'react-router-dom';
                 ]);
                 setValues(valoresIniciais);
             }}>
-                <div>
-                    <label>Nome da categoria
-                        <input 
-                            type="text" 
-                            value={values.nome}
-                            name = "nome"
-                            onChange={handleChange}
-                        /> 
-                    </label>
-                </div>
-                <div>
-                    <label>Descrição:
-                        <textarea
-                            type="text" 
-                            name="descricao"
-                            value={values.descricao}
-                            onChange={handleChange}
-                        /> 
-                    </label>
-                </div>  
-                <div>
-                    <label>Cor:
-                        <input
-                            type="color" 
-                            value={values.cor}
-                            name="cor"
-                            onChange={handleChange}
-                        /> 
-                    </label>
-                </div>
+                <FormField 
+                    values ={values.nome}
+                    onChange={handleChange}
+                    name='nome'
+                    type='text'
+                    label='Nome da categoria'
+                />
+
+                <FormField 
+                    values ={values.descricao}
+                    onChange={handleChange}
+                    name='descricao'
+                    type='text'
+                    label='Descrição'
+                />
+
+                <FormField 
+                    values ={values.cor}
+                    onChange={handleChange}
+                    name={'cor'}
+                    type='color'
+                    label='Cor'
+                />
+                
                 <button>Cadastrar </button>
             </form>
             <ul>
