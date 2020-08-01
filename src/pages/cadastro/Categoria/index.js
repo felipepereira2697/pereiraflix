@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PageDefault from '../../../components/PageDefault';
 import { Link } from 'react-router-dom';
 import FormField from '../../../components/Carousel/components/FormField';
+import Button from '../../../components/Button';
 
  function CadastroCategoria() {
      const valoresIniciais = {
@@ -56,7 +57,7 @@ import FormField from '../../../components/Carousel/components/FormField';
                     values ={values.descricao}
                     onChange={handleChange}
                     name='descricao'
-                    type='text'
+                    type='textarea'
                     label='Descrição'
                 />
 
@@ -68,7 +69,7 @@ import FormField from '../../../components/Carousel/components/FormField';
                     label='Cor'
                 />
                 
-                <button>Cadastrar </button>
+                <Button>Cadastrar </Button>
             </form>
             <ul>
                 {categorias.map((categoria, indice) => {
