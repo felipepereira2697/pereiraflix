@@ -6,8 +6,8 @@ import Button from '../../../components/Button';
 
  function CadastroCategoria() {
      const valoresIniciais = {
-         nome: 'Categoria inicial',
-         descricao: 'Essa é a descrição inicial',
+         nome: '',
+         descricao: '',
          cor: '#000'
      }
     const [categorias, setCategorias] = useState([]);
@@ -21,13 +21,11 @@ import Button from '../../../components/Button';
         })
     }
 
-    function handleChange(event) {
+    function handleChange(infosDoEvento) {
         //quem é o alvo da mudança que estamos fazendo
         //usando destructuring
-        setValue(
-            event.target.getAttribute('name'),
-            event.target.value,
-          );
+        const { name, value } = infosDoEvento.target;
+        setValue(name, value);
             
     }
     return (
@@ -48,7 +46,7 @@ import Button from '../../../components/Button';
                     onChange={handleChange}
                     name='nome'
                     type='text'
-                    label='Nome da categoria'
+                    label='Nome da Categoria'
                 />
 
                 <FormField 

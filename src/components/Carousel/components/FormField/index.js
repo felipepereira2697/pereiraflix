@@ -52,8 +52,12 @@ const Input = styled.input`
   border-radius: 4px;
   transition: border-color .3s;
   
+
   &:focus {
     border-bottom-color: var(--primary);
+  }
+  &:focus:not([type="color"]) + span {
+
   }
   &:focus:not([type='color']) + ${Label.Text} {
     transform: scale(.6) translateY(-10px);
@@ -69,26 +73,28 @@ const Input = styled.input`
 }
 `;
 
-function FormField({ value, onChange, name, type, label}) {
+function FormField({ values, onChange, name, type, label}) {
     const fieldId = `id_${name}`;
     const isTextArea = type === 'textarea';
     const tag = isTextArea ? 'textarea' : 'input';
+    const hasValue = values.length;
     return (
         
         <FormFieldWrapper>
             <Label htmlFor={fieldId}>
-                
-                <Label.Text>
-                {label}:
-                </Label.Text>
+               
                 <Input
                 as = {tag}
                 id={fieldId}
                 type={type}  
-                value={value}
+                value={values}
                 name = {name}
                 onChange={onChange}
+            
                 /> 
+                <Label.Text>
+                {label}:
+                </Label.Text>
             </Label>
         </FormFieldWrapper>
     );
