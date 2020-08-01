@@ -24,12 +24,10 @@ import Button from '../../../components/Button';
     function handleChange(event) {
         //quem é o alvo da mudança que estamos fazendo
         //usando destructuring
-        const {getAttribute, value} = event.target
-        
         setValue(
-            getAttribute('name'),
-            value
-        );
+            event.target.getAttribute('name'),
+            event.target.value,
+          );
             
     }
     return (
@@ -64,7 +62,7 @@ import Button from '../../../components/Button';
                 <FormField 
                     values ={values.cor}
                     onChange={handleChange}
-                    name={'cor'}
+                    name='cor'
                     type='color'
                     label='Cor'
                 />
