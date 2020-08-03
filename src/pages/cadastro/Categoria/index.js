@@ -30,7 +30,14 @@ import Button from '../../../components/Button';
 
     // chamamos o useEffect quando queremos que algum efeito colateral aconteca, funcao de dois parametros
     useEffect(() => {
-
+        //using javascript fetch
+        const URL = 'http://localhost:3000/categorias';
+        fetch(URL)
+        .then((serverResponse) => {
+            //can take a few moments
+            const response = await serverResponse.json();
+        })
+        
     }, []);
      
 
