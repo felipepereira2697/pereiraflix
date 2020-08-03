@@ -33,7 +33,7 @@ import Button from '../../../components/Button';
         //using javascript fetch
         const URL = 'http://localhost:3000/categorias';
         fetch(URL)
-        .then((serverResponse) => {
+        .then( async (serverResponse) => {
             //can take a few moments
             const response = await serverResponse.json();
         })
