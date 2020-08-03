@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PageDefault from '../../../components/PageDefault';
 import { Link } from 'react-router-dom';
 import FormField from '../../../components/Carousel/components/FormField';
@@ -26,8 +26,14 @@ import Button from '../../../components/Button';
         //usando destructuring
         const { name, value } = infosDoEvento.target;
         setValue(name, value);
-            
     }
+
+    // chamamos o useEffect quando queremos que algum efeito colateral aconteca, funcao de dois parametros
+    useEffect(() => {
+
+    }, []);
+     
+
     return (
         <PageDefault>
             <h1>Cadastro de categoria: {values.nome} </h1>
@@ -70,7 +76,7 @@ import Button from '../../../components/Button';
             <ul>
                 {categorias.map((categoria, indice) => {
                     return (
-                     <li key={`${categoria}${indice}`}>
+                     <li key={`${categoria.nome}${indice}`}>
                          {categoria.nome}
                      </li>
 
