@@ -4,14 +4,9 @@ import { Link } from 'react-router-dom';
 import FormField from '../../../components/Carousel/components/FormField';
 import Button from '../../../components/Button';
 
- function CadastroCategoria() {
-     const valoresIniciais = {
-         nome: '',
-         descricao: '',
-         cor: '#000'
-     }
-    const [categorias, setCategorias] = useState([]);
-     //abrindo oq esta vindo do array useState
+// Custom hooks devem ter o prefixo use
+function useForm(valoresIniciais) {
+    //abrindo oq esta vindo do array useState
     const [values, setValues] = useState(valoresIniciais); 
 
     function setValue(chave, valor) {
@@ -27,6 +22,16 @@ import Button from '../../../components/Button';
         const { name, value } = infosDoEvento.target;
         setValue(name, value);
     }
+}
+
+ function CadastroCategoria() {
+     const valoresIniciais = {
+         nome: '',
+         descricao: '',
+         cor: '#000'
+     }
+    const [categorias, setCategorias] = useState([]);
+    
 
     // chamamos o useEffect quando queremos que algum efeito colateral aconteca, funcao de dois parametros
     useEffect(() => {
@@ -36,6 +41,7 @@ import Button from '../../../components/Button';
         .then( async (serverResponse) => {
             //can take a few moments
             const response = await serverResponse.json();
+            setCategorias([...response]);
         })
         
     }, []);
