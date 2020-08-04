@@ -25,7 +25,7 @@ import useForm from '../../../hooks/useForm';
             //can take a few moments
             const response = await serverResponse.json();
             setCategorias([...response]);
-        })
+        });
         
     }, []);
      

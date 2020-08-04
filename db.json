@@ -12,5 +12,13 @@
             "descricao": "Outra categoria bacana",
             "cor": "#cbd1ff"
         }
+    ],
+    "videos": [
+        {
+            "id": 1,
+            "categoriaId": 1,
+            "titulo": "O que faz uma desenvolvedora front-end? #HipstersPontoTube",
+            "url": "https://www.youtube.com/watch?v=ZY3-MFxVdEw"
+        }
     ]
 }
