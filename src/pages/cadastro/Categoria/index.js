@@ -3,33 +3,16 @@ import PageDefault from '../../../components/PageDefault';
 import { Link } from 'react-router-dom';
 import FormField from '../../../components/Carousel/components/FormField';
 import Button from '../../../components/Button';
-
-// Custom hooks devem ter o prefixo use
-function useForm(valoresIniciais) {
-    //abrindo oq esta vindo do array useState
-    const [values, setValues] = useState(valoresIniciais); 
-
-    function setValue(chave, valor) {
-        setValues({
-            ...values,
-            [chave] : valor, //nome : 'oNomeVemAqui'
-        })
-    }
-
-    function handleChange(infosDoEvento) {
-        //quem é o alvo da mudança que estamos fazendo
-        //usando destructuring
-        const { name, value } = infosDoEvento.target;
-        setValue(name, value);
-    }
-}
+import useForm from '../../../hooks/useForm';
 
  function CadastroCategoria() {
      const valoresIniciais = {
          nome: '',
          descricao: '',
          cor: '#000'
-     }
+    }
+
+    const { values, handleChange, clearForm }  = useForm(valoresIniciais);
     const [categorias, setCategorias] = useState([]);
     
 
@@ -58,7 +41,7 @@ function useForm(valoresIniciais) {
                     ...categorias,
                     values
                 ]);
-                setValues(valoresIniciais);
+                clearForm(valoresIniciais);
             }}>
                 <FormField 
                     values ={values.nome}
