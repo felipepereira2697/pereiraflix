@@ -67,6 +67,13 @@ import categoriasRepository from '../../../repositories/categorias';
                     name='categoria'
                     type='text'
                     label='Categoria do Vídeo'
+                    suggestions={
+                        [
+                            'Front End',
+                            'Back End',
+                            'Data Science'
+                        ]
+                    }
                 />
 
 
