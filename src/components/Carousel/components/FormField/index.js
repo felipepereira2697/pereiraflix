@@ -92,8 +92,8 @@ function FormField({ values, onChange, name, type, label, suggestions}) {
                 name = {name}
                 onChange={onChange}
                 hasValue = {hasValue}
-                list = {`suggestionFor_${fieldId}`}
-                autoComplete="off"
+                list = {hasSuggestions ? `suggestionFor_${fieldId}` : undefined}
+                autoComplete={ hasSuggestions ? 'off' : 'on'}
                 /> 
                 <Label.Text>
                 {label}:
