@@ -4,12 +4,13 @@ import { Link, useHistory } from 'react-router-dom';
 import FormField from '../../../components/Carousel/components/FormField';
 import useForm from '../../../hooks/useForm';
 import Button from '../../../components/Button';
+import videosRepository from '../../../repositories/videos';
 
  function CadastroVideo() {
      const history = useHistory();
      const { values, handleChange } = useForm({
-         titulo: 'Vídeo padrao',
-         url: 'https://batatinhanicemovie.potato',
+         titulo: 'Ronaldo R9',
+         url: 'https://www.youtube.com/watch?v=Lu-IsHvTptk',
          categoria: 'Front End'
      });
     return (
@@ -18,7 +19,15 @@ import Button from '../../../components/Button';
             
             <form onSubmit={(event) => {
                 event.preventDefault();
-                history.push('/');
+                videosRepository.create({
+                    titulo : values.titulo,
+                    url : values.url,
+                    categoriaId : 1,
+                })
+                .then(() => {
+                    history.push('/');
+                });
+                
             }}>
                 
                 <FormField
